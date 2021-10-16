@@ -1,0 +1,224 @@
+* {
+	/* 页面初始化 清除元素的内外边距 */
+	padding: 0;
+	margin: 0;
+}
+body {
+	/* 宽度占浏览器可视区域的高度 */
+	width: 100vw;
+	height: 100vh;
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+}
+main{
+	flex: 1;
+}
+
+li {
+	/* 清除li元素前面的项目符号 */
+	list-style: none;
+}
+a {
+	/* 清除a元素的下划线 */
+	text-decoration: none;
+	color: #000;
+}
+.navbar {
+	/*导航栏属性*/
+	width: 100%;
+	height: 60px;
+	background-color: #fff;
+	/* 盒子阴影 */
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	z-index: 100;
+}
+.navbar .nav {
+	width: 1200px;
+	height: 100%;
+	/* 让元素自动水平居中 */
+	margin: 0 auto;
+}
+.navbar .nav ul {
+	z-index: 99;
+	/* 相对定位 */
+	position: relative;
+	/* 弹性布局 */
+	display: flex;
+	/* 让子元素平均分配宽度 */
+	justify-content: space-around;
+	width: 100%;
+	height: 100%;
+}
+.navbar .nav ul > li {
+	width: 100%;
+	height: 100%;
+}
+.navbar .nav ul > li > a {
+	/* 因为a元素是行内元素 必须将其转为行内块或者块级才能设置宽度和高度 */
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 60px;
+	text-align: center;
+}
+.navbar .nav ul > li ol {
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+	/* 让盒子先沿着y轴缩放到0 也就是隐藏了 */
+	transform: scaleY(0);
+	/* 我们需要将盒子从上面滑动下来 设置一下缩放的中心点即可 设置到最上面的中间位置 */
+	transform-origin: 50% 0;
+	/* 设置过渡 */
+	transition: all 0.4s;
+}
+.navbar .nav ul > li ol li {
+	height: 50px;
+	border-bottom: 1px solid rgb(245, 245, 245);
+}
+.navbar .nav ul > li ol li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 50px;
+	text-align: center;
+}
+.navbar .nav ul > li ol li:hover {
+	background-color: rgba(0, 0, 0, 0.03);
+}
+.navbar .nav ul > li:hover ol {
+	transform: scaleY(1);
+}
+/* 现在可以设置线条了 */
+.navbar .nav ul .underline {
+	/* 绝对定位 */
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 200px;
+	height: 6px;
+	/* 设置一下盒子的左上角和右上角的圆角 */
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	background-color: #ffffff;
+	/* 加过渡 */
+	transition: all 0.6s;
+	/*这个线条有点影响鼠标移入li这个效果 */
+	/* 这个属性就可以解决这个问题 就貌似这个元素你能看见 但是鼠标是点击不到了 现在鼠标放到线条也没事了 */
+	pointer-events: none;
+}
+.navbar .nav ul .underline::before {
+	content: "";
+	/* 利用::before伪元素设置三角 */
+	position: absolute;
+	top: -8px;
+	/* calc方法自动计算数值 让盒子居中 */
+	left: calc(50% - 8px);
+	width: 16px;
+	height: 8px;
+	/* inherit可以继承父元素的属性值 */
+	background-color: inherit;
+	/* 这个属性可以绘制图案 polygon这个属性只需要提供最少三个点,就可以将三个点连接绘制一个图案
+	两个点的坐标位置(x,y) 0 100% 这个点就是说在x轴上为0px 在y轴是100%
+	就是盒子的高度x轴的方向是向右y轴的方向是向下那么我们设置了三个点 然后将三个点连起来刚好绘制出一个三角形*/
+	clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+.navbar .nav ul > li:nth-child(2):hover ~ .underline {
+	left: 200px;
+	background-color: #ff9933;
+}
+/* 重复以上操作 */
+.navbar .nav ul > li:nth-child(3):hover ~ .underline {
+	left: 400px;
+	background-color: #339933;
+}
+.navbar .nav ul > li:nth-child(4):hover ~ .underline {
+	left: 600px;
+	background-color: #0099cc;
+}
+.navbar .nav ul > li:nth-child(5):hover ~ .underline {
+	left: 800px;
+	background-color: #9966cc;
+}
+.navbar .nav ul > li:nth-child(6):hover ~ .underline {
+	left: 1000px;
+	background-color: #000000;
+}
+
+h1 {
+    font-family: 'Lato','sans-serif';
+    font-weight: 300;
+    /* font-spacing:2px; */
+    font-size: 80px;
+}
+.header {
+    position: relative;
+    text-align: center;
+    /* 背景渐变 */
+	background: white;
+    /*background: linear-gradient(60deg,rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);*/
+    color: wheat;
+}
+.lnner-header {
+    height: 85vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* flex */
+    /* 垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /* 最小值 */
+    min-height: 100px;
+    /* 最大值 */
+    max-height: 150px;
+}
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+/* 选择的一个use */
+.parallax>use:nth-child(1) {
+    /* 延迟 2s 执行 */
+    animation-delay: -10s;
+    /* 7s 内 执行完毕 */
+    animation-duration: 5s;
+}
+.parallax>use:nth-child(2) {
+      animation-delay: -8s;
+      animation-duration: 10s;
+}
+.parallax>use:nth-child(3) {
+    animation-delay: -6s;
+    animation-duration: 15s;
+}
+.parallax>use:nth-child(4) {
+    animation-delay: -1s;
+    animation-duration: 20s;
+}
+/* 动画 */
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px,0,0);
+    }
+    100% {
+        transform: translate3d(85px,0,0);
+    }
+}
+/* 当屏幕小于 768px 执行 */
+@media (max-width : 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+    h1   {
+        font-size: 24px;
+    }
+}

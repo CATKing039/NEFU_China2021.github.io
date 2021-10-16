@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse</title>
+    <style>
+       *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(96, 221, 223);
+        }
+        .shell{
+            display: grid;
+            grid-template-columns: repeat(7,40px);
+            grid-template-rows: repeat(7,40px);
+            grid-gap: 0.5rem;
+        }
+        .item{
+            /*background-color: rgb(6, 17, 223);url(T.gif)*/
+			background-color: rgb(223, 74, 14);
+            /* border-radius: 20px; */
+            box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+        }
+        .item::after,.item::before{
+            content: '';
+            width: 5px;
+            height: 5px;
+            display: block;
+            position: absolute;
+            border-radius: 50%;
+            left: 20px;
+            background-color: #fff;
+        }
+        .item::after{
+            top: 10px;
+        }
+        .item::before{
+            bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+       
+		<div class="item"></div>
+		
+    </div>
+    <script>
+        document.addEventListener('mousemove',e => {
+            const item = document.querySelectorAll(".item")
+
+            const mouseX = e.clientX
+            const mouseY = e.clientY
+
+            item.forEach(sqr => {
+                const sqrX = sqr.offsetLeft
+                const sqrY = sqr.offsetTop
+
+                const diffX = mouseX -sqrX
+                const diffY = mouseY -sqrY
+
+                const radians = Math.atan2(diffY,diffX)
+
+                const angle = radians * 180 / Math.PI
+
+                sqr.style.transform = `rotate(${angle}deg)`
+            })
+        })
+    </script>
+</body>
+
+</html>

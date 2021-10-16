@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home</title>
+		<!-- ctrl+h即可调出查询与替换窗口 -->
+		<link rel="stylesheet" href="./index.css" />
+	</head>
+	<body>
+		<div class="navbar">
+			<div class="nav">
+				<ul>
+					<li>
+						<a href="javascript:;">Home</a>
+					</li>
+					<li>
+						<a href="javascript:;">Project</a>
+						<ol>
+							<li><a href="javascript:;">Description</a></li>
+							<li><a href="javascript:;">Design</a></li>
+							<li><a href="javascript:;">Engineering</a></li>
+							<li><a href="javascript:;">Modeling</a></li>
+							<li><a href="javascript:;">Contribution</a></li>
+							<li><a href="javascript:;">Hardware</a></li>
+						</ol>
+					</li>
+					<li>
+						<a href="javascript:;">Experiments</a>
+						<ol>
+							<li><a href="javascript:;">Results</a></li>
+							<li><a href="javascript:;">Parts</a></li>
+							<li><a href="javascript:;">Proof of Concept</a></li>
+							<li><a href="javascript:;">Safety</a></li>
+							<li><a href="javascript:;">Notebook</a></li>
+						</ol>
+					</li>
+					<li>
+						<a href="javascript:;">Outlook</a>
+					</li>
+					<li>
+						<a href="javascript:;">Team</a>
+						<ol>
+							<li><a href="javascript:;">Members</a></li>
+							<li><a href="javascript:;">Attribution</a></li>
+							<li><a href="javascript:;">Collabration</a></li>
+							<li><a href="javascript:;">Partnership</a></li>
+						</ol>
+					</li>
+					<li>
+						<a href="javascript:;">Human Practice</a>
+						<ol>
+								<li><a href="javascript:;">Implementation</a></li>
+								<li><a href="javascript:;">Integraed Human Practice</a></li>
+								<li><a href="javascript:;">Education and Engagement</a></li>
+							</ol>
+						
+					</li>
+					<!-- 这个元素来定义滑动的线条 -->
+					<li class="underline"></li>
+				</ul>
+			</div>
+		</div>
+		<main></main>
+		<!-- 波浪区域 -->
+		<div>
+			<!-- svg 形状 -->
+			<svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+				<!-- 形状容器 -->
+				<defs>
+					<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+				</defs>
+				<!-- 组合形状 -->
+				<g class="parallax">
+					<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(190, 105, 83, 0.9)" />
+					<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(239, 233, 217, 0.7)" />
+					<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(190, 105, 83, 0.5)" />
+					<use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(238, 198, 153, 0.3)" />
+				</g>
+			</svg>
+		</div>
+	</body>
+</html>
